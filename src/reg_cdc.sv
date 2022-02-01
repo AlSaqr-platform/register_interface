@@ -112,8 +112,8 @@ module reg_cdc_master_intf #(
 ) (
     input  logic dst_clk_i,
     input  logic dst_rst_ni,
-    input  req_t dst_req_o,
-    output rsp_t dst_rsp_i,
+    output req_t dst_req_o,
+    input  rsp_t dst_rsp_i,
 
     input  logic async_req_i,
     output logic async_ack_o,
@@ -233,7 +233,7 @@ module reg_cdc #(
       .rsp_t(rsp_t) 
    ) i_reg_cdc_slave_intf (
        .src_clk_i    ( src_clk_i  ),
-       .src_rst_ni   ( src_rst_i  ),
+       .src_rst_ni   ( src_rst_ni ),
        .src_req_i    ( src_req_i  ),
        .src_rsp_o    ( src_rsp_o  ),
        
@@ -251,7 +251,7 @@ module reg_cdc #(
       .rsp_t(rsp_t) 
    ) i_reg_cdc_master_intf (
        .dst_clk_i   ( dst_clk_i  ),
-       .dst_rst_ni  ( dst_rst_i  ),
+       .dst_rst_ni  ( dst_rst_ni ),
        .dst_req_o   ( dst_req_o  ),
        .dst_rsp_i   ( dst_rsp_i  ),
                                  
